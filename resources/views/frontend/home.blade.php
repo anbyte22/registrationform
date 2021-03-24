@@ -3,21 +3,22 @@
     <div class="form-home">
         <div class="container">
             <div class="row">
-                <form action="" class="formpage" method="#">
+                <form action="{{route('user.register')}}" class="formpage"     method="post">
+                    @csrf
                     <div class="box-shadow">
                         <!-- 2 column grid layout with text inputs for the first and last names -->
                         <div class=" mb-4">
                             <div class="col-md-6">
                                 <div class="form-outline">
                                     <label class="form-label" for="form6Example1">name</label>
-                                    <input type="text" id="form6Example1" class="form-control" />
+                                    <input type="text" id="form6Example1" class="form-control" required />
 
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-outline">
                                     <label class="form-label" for="form6Example2">Company name</label>
-                                    <input type="text" id="form6Example2" class="form-control" />
+                                    <input type="text" id="form6Example2" class="form-control" required />
 
                                 </div>
                             </div>
@@ -26,7 +27,7 @@
                         <!-- Text input -->
                         <div class="form-outline col-md-12">
                             <label class="form-label" for="form6Example3">Job Title</label>
-                            <input type="text" id="form6Example3" class="form-control" />
+                            <input type="text" id="form6Example3" class="form-control" required/>
 
                         </div>
 
@@ -34,32 +35,32 @@
 
                         <div class="form-outline col-md-12">
                             <label class="form-label" for="form6Example4">Address</label>
-                            <textarea id="form6Example4" class="form-control"></textarea>
+                            <textarea id="form6Example4" class="form-control" required></textarea>
                         </div>
 
                         <!-- Email input -->
                         <div class="form-outline col-md-4">
                             <label class="form-label" for="form6Example5">City</label>
-                            <input type="text" id="form6Example5" class="form-control" />
+                            <input type="text" id="form6Example5" class="form-control" required/>
 
                         </div>
 
                         <!-- Number input -->
                         <div class="form-outline col-md-4">
                             <label class="form-label" for="form6Example6">Pin </label>
-                            <input type="text" id="form6Example6" class="form-control" />
+                            <input type="text" id="form6Example6" class="form-control" required />
 
                         </div>
 
                         <!-- Message input -->
                         <div class="form-outline col-md-4">
                             <label class="form-label" for="form6Example7">State</label>
-                            <input type="text" id="form6Example6" class="form-control" />
+                            <input type="text" id="form6Example6" class="form-control" required />
 
                         </div>
                         <div class="form-outline col-md-4">
                             <label class="form-label" for="form6Example5">Country</label>
-                            <input type="text" id="form6Example5" class="form-control" />
+                            <input type="text" id="form6Example5" class="form-control" required />
 
                         </div>
 
@@ -78,14 +79,17 @@
                         </div>
                         <div class="form-outline col-md-4">
                             <label class="form-label" for="form6Example5">Mobile</label>
-                            <input type="number" id="form6Example5" class="form-control" />
+                            <input type="number" id="form6Example5" class="form-control" required />
+                            @error('mobile')
+                                <span style="color: red">*{{$message}}</span>
+                            @enderror
 
                         </div>
 
                         <!-- Number input -->
                         <div class="form-outline col-md-4">
                             <label class="form-label" for="form6Example6">Email </label>
-                            <input type="email" id="form6Example6" class="form-control" />
+                            <input type="email" id="form6Example6" class="form-control" required/>
 
                         </div>
 
@@ -762,7 +766,7 @@
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="submit col-md-6">
-                                            <button type="button" class="btn btn-primary btn-block ">Submit</button>
+                                            <input type="submit" class="btn btn-primary btn-block " name="submit">
                                         </div>
                                         <div class="submit col-md-6">
                                             <button type="button" class="btn btn-primary btn-block">Clear</button>
