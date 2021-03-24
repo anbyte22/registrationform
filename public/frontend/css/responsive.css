@@ -1,0 +1,17 @@
+
+@media (max-width: 991px) {
+body,html {
+overflow-x: hidden;
+}
+}
+@media (max-width: 767px) {
+ body,html {
+overflow-x: hidden;
+}
+.site-logo,
+.headerright {
+	text-align:center;
+}
+
+}
+
