@@ -44,7 +44,7 @@ class Controller extends BaseController
         $check= $user->save();
         if($check){
 
-          alert('Success', 'Password changed Successfully', 'success');
+          alert('Success', 'Registered Successfully', 'success');
           return redirect('admin')->with('data','*Register succesfuly');
 
         }
