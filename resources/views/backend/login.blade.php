@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="{{ asset ('public/backend/dist/css/adminlte.min.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -28,11 +29,7 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-        @if($message = Session::get('error'))
-            <p class="login-box-msg" style="color:red;">{{ $message }}</p>
-        @else
             <p class="login-box-msg">Sign in to start your session</p>
-        @endif
     <form action="#" method="post">
         @csrf
         <div class="input-group mb-3">
@@ -80,11 +77,7 @@
   </div>
 </div>
 <!-- /.login-box -->
-@if ($data ?? '')
-    <script>
-        toaster.error($data);
-        </script>
-@endif
+@include('sweetalert::alert')
 
 <!-- jQuery -->
 <script src="{{ asset ('public/backend/plugins/jquery/jquery.min.js') }}"></script>
@@ -117,5 +110,12 @@
     });
     </script>
 @enderror
+@if($message = Session::get('error'))
+<script type="text/javascript">
+    $(document).ready(function () {
+        toastr.error('{{ $message }}');
+    });
+    </script>
+@endif
 </body>
 </html>

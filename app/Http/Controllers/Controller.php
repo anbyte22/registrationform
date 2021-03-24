@@ -9,6 +9,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\User;
 use Hash;
+use Auth;
 
 class Controller extends BaseController
 {
@@ -43,9 +44,26 @@ class Controller extends BaseController
         $check= $user->save();
         if($check){
 
-
+          alert('Success', 'Password changed Successfully', 'success');
           return redirect('admin')->with('data','*Register succesfuly');
 
         }
     }
+    public function loginValidation(Request $request){
+        $request->validate([
+            'email'=>'required | email',
+            'password'=>'required | min:4 | max:15',
+        ]);
+        $data=$request->input();
+        if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
+            return redirect('admin/dashboard');
+        }else{
+
+           return redirect('admin')->with('error','Incorrect Email or Password. Please enter valid details.');
+        }
+    }
+    public function dash(){
+        return view('backend.dashboard',['active'=>'Dashboard']);
+    }
 }
+
