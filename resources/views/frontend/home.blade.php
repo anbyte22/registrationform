@@ -732,7 +732,7 @@
                                             <div class="checkout__input__checkbox">
                                                 <label for="uptotwofv">
                                                     Up To 25 Lakhs
-                                                    <input type="checkbox" id="uptotwofv" name="annualturnover[]"
+                                                    <input type="radio" id="uptotwofv" name="annualturnover"
                                                         value="Up To 25 Lakhs">
                                                     <span class="checkmark"></span>
                                                 </label>
@@ -740,7 +740,7 @@
                                             <div class="checkout__input__checkbox">
                                                 <label for="twofvtosvfv">
                                                     25 Lakhs - 75 Lakhs
-                                                    <input type="checkbox" id="twofvtosvfv" name="annualturnover[]"
+                                                    <input type="radio" id="twofvtosvfv" name="annualturnover"
                                                         value="25 Lakhs - 75 Lakhs">
                                                     <span class="checkmark"></span>
                                                 </label>
@@ -750,7 +750,7 @@
                                             <div class="checkout__input__checkbox">
                                                 <label for="svfivtoonfvcr">
                                                     75 Lakhs - 1.5 Crore
-                                                    <input type="checkbox" id="svfivtoonfvcr" name="annualturnover[]"
+                                                    <input type="radio" id="svfivtoonfvcr" name="annualturnover"
                                                         value="75 Lakhs - 1.5 Crore">
                                                     <span class="checkmark"></span>
                                                 </label>
@@ -758,7 +758,7 @@
                                             <div class="checkout__input__checkbox">
                                                 <label for="ovonfvcr">
                                                     Over 1.5 Crore
-                                                    <input type="checkbox" id="ovonfvcr" name="annualturnover[]"
+                                                    <input type="radio" id="ovonfvcr" name="annualturnover"
                                                         value="Over 1.5 Crore">
                                                     <span class="checkmark"></span>
                                                 </label>
