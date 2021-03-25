@@ -28,7 +28,8 @@
                             <div class="clearfix"></div>
                             <div class="submit col-md-6">
                                 <button type="submit" class="btn btn-danger btn-round ">Submit</button>
-                                <button type="button" class="btn btn-danger btn-round">Clear</button>
+                                <button type="button" class="btn btn-danger btn-round"
+                                    onclick="window.history.back();">Clear</button>
                             </div>
                             <div class="submit col-md-6">
 
