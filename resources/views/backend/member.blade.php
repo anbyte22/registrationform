@@ -1,5 +1,5 @@
 @extends('backend.master')
-@section('title','Ecom Admin | Product Product')
+@section('title','Registered | Member')
 @section('body')
 <!-- Content Header (Page header) -->
 <section class="content-header">
