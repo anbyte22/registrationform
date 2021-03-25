@@ -11,14 +11,14 @@
                             <div class="col-md-6">
                                 <div class="form-outline">
                                     <label class="form-label" for="form6Example1">name</label>
-                                    <input type="text" id="form6Example1" class="form-control" required />
+                                    <input type="text" name="name" id="form6Example1" class="form-control" value="{{ old('name') }}" required />
 
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-outline">
                                     <label class="form-label" for="form6Example2">Company name</label>
-                                    <input type="text" id="form6Example2" class="form-control" required />
+                                    <input type="text" name="company" id="form6Example2" class="form-control" value="{{ old('company') }}" required />
 
                                 </div>
                             </div>
@@ -27,7 +27,7 @@
                         <!-- Text input -->
                         <div class="form-outline col-md-12">
                             <label class="form-label" for="form6Example3">Job Title</label>
-                            <input type="text" id="form6Example3" class="form-control" required/>
+                            <input type="text" name="job" id="form6Example3" class="form-control" value="{{ old('job') }}" required/>
 
                         </div>
 
@@ -35,51 +35,51 @@
 
                         <div class="form-outline col-md-12">
                             <label class="form-label" for="form6Example4">Address</label>
-                            <textarea id="form6Example4" class="form-control" required></textarea>
+                            <textarea id="form6Example4" name="address" class="form-control" value="{{ old('address') }}" required></textarea>
                         </div>
 
                         <!-- Email input -->
                         <div class="form-outline col-md-4">
                             <label class="form-label" for="form6Example5">City</label>
-                            <input type="text" id="form6Example5" class="form-control" required/>
+                            <input type="text" name="city" id="form6Example5" class="form-control" value="{{ old('city') }}" required/>
 
                         </div>
 
                         <!-- Number input -->
                         <div class="form-outline col-md-4">
                             <label class="form-label" for="form6Example6">Pin </label>
-                            <input type="text" id="form6Example6" class="form-control" required />
+                            <input type="number" name="pin" id="form6Example6" class="form-control" value="{{ old('pin') }}" required />
 
                         </div>
 
                         <!-- Message input -->
                         <div class="form-outline col-md-4">
                             <label class="form-label" for="form6Example7">State</label>
-                            <input type="text" id="form6Example6" class="form-control" required />
+                            <input type="text" name="state" id="form6Example6" class="form-control" value="{{ old('state') }}" required />
 
                         </div>
                         <div class="form-outline col-md-4">
                             <label class="form-label" for="form6Example5">Country</label>
-                            <input type="text" id="form6Example5" class="form-control" required />
+                            <input type="text" name="country" id="form6Example5" class="form-control" value="{{ old('country') }}" required />
 
                         </div>
 
                         <!-- Number input -->
                         <div class="form-outline col-md-4">
                             <label class="form-label" for="form6Example6">Tel </label>
-                            <input type="text" id="form6Example6" class="form-control" />
+                            <input type="number" name="tel" id="form6Example6" class="form-control" value="{{ old('tel') }}" />
 
                         </div>
 
                         <!-- Message input -->
                         <div class="form-outline col-md-4">
                             <label class="form-label" for="form6Example7">Fax</label>
-                            <input type="text" id="form6Example6" class="form-control" />
+                            <input type="text" name="fax" id="form6Example6" class="form-control" value="{{ old('fax') }}" />
 
                         </div>
                         <div class="form-outline col-md-4">
                             <label class="form-label" for="form6Example5">Mobile</label>
-                            <input type="number" id="form6Example5" class="form-control" required />
+                            <input type="number" name="mobile" id="form6Example5" class="form-control" value="{{ old('mobile') }}" required />
                             @error('mobile')
                                 <span style="color: red">*{{$message}}</span>
                             @enderror
@@ -89,14 +89,14 @@
                         <!-- Number input -->
                         <div class="form-outline col-md-4">
                             <label class="form-label" for="form6Example6">Email </label>
-                            <input type="email" id="form6Example6" class="form-control" required/>
+                            <input type="email" name="email" id="form6Example6" class="form-control" value="{{ old('email') }}" required/>
 
                         </div>
 
                         <!-- Message input -->
                         <div class="form-outline col-md-4">
                             <label class="form-label" for="form6Example7">Website</label>
-                            <input type="text" id="form6Example6" class="form-control" />
+                            <input type="text" name="website" id="form6Example6" class="form-control" value="{{ old('website') }}" />
 
                         </div>
                         <div class="clearfix"></div>
