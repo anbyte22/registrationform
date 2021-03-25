@@ -32,7 +32,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ url('admin/dashboard') }}" class="nav-link">Dashboard</a>
+                    <a href="{{ url('admin/dashboard') }}" class="nav-link active">Dashboard</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="{{ url('admin/logout') }}" class="nav-link">Logout</a>
@@ -113,6 +113,14 @@
                                     <i class="nav-icon fas fa-tachometer-alt"></i>
                                     <p>
                                         Dashboard
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('admin/dashboard') }}" class="nav-link @if ($active=='' ) active @endif">
+                                    <i class="nav-icon fas fa-users"></i>
+                                    <p>
+                                        Members
                                     </p>
                                 </a>
                             </li>
