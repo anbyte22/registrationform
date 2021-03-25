@@ -41,7 +41,9 @@ class RegistrationController extends Controller
         $user->about = implode($request->aboutaahar, '+');
         $user->turnover = $request->annualturnover;
         if ($user->save()) {
-            return redirect('/');
+            dd('yes');
+            $data=TempRegistration::where('mobile',$request->mobile)->first();
+            return redirect('payment')->with('id',$data->id);
         }
         //dd($user->all());
     }

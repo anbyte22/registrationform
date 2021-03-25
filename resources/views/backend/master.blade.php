@@ -117,7 +117,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ url('admin/dashboard') }}" class="nav-link @if ($active=='' ) active @endif">
+                                <a href="{{ url('admin/member') }}" class="nav-link @if ($active=='Member') active @endif">
                                     <i class="nav-icon fas fa-users"></i>
                                     <p>
                                         Members

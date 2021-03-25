@@ -8,6 +8,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\User;
+use App\Models\Registration;
 use Hash;
 use Auth;
 
@@ -64,6 +65,10 @@ class Controller extends BaseController
     }
     public function dash(){
         return view('backend.dashboard',['active'=>'Dashboard']);
+    }
+    public function member(){
+        $member=Registration::all();
+        return view('backend.member',['datas'=>$member,'active'=>'Member']);
     }
 }
 
