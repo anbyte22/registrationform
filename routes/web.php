@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', 'RegistrationController@index');
+Route::get('payment', 'RegistrationController@payment');
 Route::get('admin', 'Controller@loginForm');
 Route::get('admin/register', 'Controller@reg');
 Route::post('admin/register', 'Controller@regForm')->name('register');

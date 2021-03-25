@@ -10,4 +10,8 @@ class RegistrationController extends Controller
     {
         return view('frontend.home');
     }
+    public function payment()
+    {
+        return view('frontend.paytype');
+    }
 }

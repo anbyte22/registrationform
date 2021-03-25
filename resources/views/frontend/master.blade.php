@@ -47,7 +47,7 @@
     </div>
     <script src="{{ asset('public/frontend/js/jquery.min.js') }}"></script>
     <script src="{{ asset('public/frontend/js/bootstrap.min.js') }}"></script>
-
+    @stack('js')
 </body>
 
 </html>

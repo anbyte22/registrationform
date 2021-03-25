@@ -238,7 +238,7 @@
                                     </label>
                                 </div>
                                 <div class="checkout__input__checkbox">
-                                    <label for="baristas">
+                                    <label for="icecream">
                                         Ice Cream Parlour Owners
                                         <input type="checkbox" id="icecream" name="business[]"
                                             value="Ice Cream Parlour Owners">
@@ -296,14 +296,6 @@
                                     <label for="purchaseman">
                                         Purchase Managers
                                         <input type="checkbox" id="purchaseman" name="business[]" value="Purchase Managers">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="housekeepers">
-                                        Executive Housekeepers
-                                        <input type="checkbox" id="housekeepers" name="business[]"
-                                            value="Executive Housekeepers">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
