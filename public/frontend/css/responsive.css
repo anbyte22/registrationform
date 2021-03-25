@@ -12,6 +12,11 @@ overflow-x: hidden;
 .headerright {
 	text-align:center;
 }
-
+#panel input {
+width:100%;
+}
+.payment-system {
+    margin-left: 0%!important;
+}
 }
 

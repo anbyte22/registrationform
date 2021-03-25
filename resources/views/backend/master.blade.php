@@ -41,35 +41,6 @@
 
 
             <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-item dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 day</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                    </div>
-                </li>
-            </ul>
         </nav>
         <!-- /.navbar -->
 
@@ -79,7 +50,7 @@
             <a href="{{ url('admin/dashboard') }}" class="brand-link">
                 <img src="{{ asset('public/backend/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Ecom</span>
+                <span class="brand-text font-weight-light">AAHAR</span>
             </a>
 
             <!-- Sidebar -->
@@ -107,7 +78,7 @@
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                             data-accordion="false">
                             <!-- Add icons to the links using the .nav-icon class
-                   with font-awesome or any other icon font library -->
+                           with font-awesome or any other icon font library -->
                             <li class="nav-item">
                                 <a href="{{ url('admin/dashboard') }}" class="nav-link @if ($active=='Dashboard' ) active @endif">
                                     <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -117,7 +88,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ url('admin/member') }}" class="nav-link @if ($active=='Member') active @endif">
+                                <a href="{{ url('admin/member') }}" class="nav-link @if ($active=='Member' ) active @endif">
                                     <i class="nav-icon fas fa-users"></i>
                                     <p>
                                         Members
@@ -125,14 +96,14 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{url('/admin/logout')}}" class="nav-link">
-                                  <i class="fas fa-sign-out-alt nav-icon"></i>
-                                  <p>
-                                    Logout
-                                     <span class="right badge badge-danger"></span>
-                                  </p>
+                                <a href="{{ url('/admin/logout') }}" class="nav-link">
+                                    <i class="fas fa-sign-out-alt nav-icon"></i>
+                                    <p>
+                                        Logout
+                                        <span class="right badge badge-danger"></span>
+                                    </p>
                                 </a>
-                              </li>
+                            </li>
                             <!--<li class="nav-header">EXAMPLES</li>-->
                         </ul>
                     </nav>
@@ -153,8 +124,7 @@
 
             <!-- Main Footer -->
             <footer class="main-footer">
-                <strong>Copyright &copy; @php echo date('Y'); @endphp <a href="{{ url('https://anbyteinfotech.com') }}"
-                        target="_new">Anbyte Infotech</a>.</strong>
+                <strong>Copyright &copy; @php echo date('Y'); @endphp AAHAR FOOD</strong>
                 All rights reserved.
                 <div class="float-right d-none d-sm-inline-block">
                     <b>Version</b> 1

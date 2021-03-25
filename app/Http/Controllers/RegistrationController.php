@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Registration;
 use App\Models\TempRegistration;
 use Illuminate\Http\Request;
 
@@ -11,9 +12,9 @@ class RegistrationController extends Controller
     {
         return view('frontend.home');
     }
-    public function payment()
+    public function payment($id)
     {
-        return view('frontend.paytype');
+        return view('frontend.paytype', ['id' => $id]);
     }
 
     public function register(Request $request)
@@ -40,11 +41,64 @@ class RegistrationController extends Controller
         $user->interest = implode($request->interest, '+');
         $user->about = implode($request->aboutaahar, '+');
         $user->turnover = $request->annualturnover;
-        if ($user->save()) {
-            dd('yes');
-            $data=TempRegistration::where('mobile',$request->mobile)->first();
-            return redirect('payment')->with('id',$data->id);
+        $user->save();
+        return redirect('payment/' . $user->id);
+
+    }
+    public function paynow(Request $request)
+    {
+        $rid = $request->rowid;
+        $paymode = $request->payment;
+        $tempUser = TempRegistration::where('id', $rid)->first();
+        $chkrid = Registration::where('paymode', $paymode)->orderBy('id', 'desc')->first();
+        if ($paymode == "Pay Online") {
+            if ($chkrid) {
+                $olduid = $chkrid->reg_no;
+                $firstpick = substr($olduid, 0, 4);
+                $lastpick = substr($olduid, 4);
+                $num = $lastpick + 1;
+                $last = sprintf("%05s", $num);
+                $regisid = $firstpick . $last;
+            } else {
+                $regisid = "AAVP00001";
+            }
+            $trnid = 145236;
+        } else {
+            if ($chkrid) {
+                $olduid = $chkrid->reg_no;
+                $firstpick = substr($olduid, 0, 3);
+                $lastpick = substr($olduid, 3);
+                $num = $lastpick + 1;
+                $last = sprintf("%05s", $num);
+                $regisid = $firstpick . $last;
+            } else {
+                $regisid = "VPC00001";
+            }
+            $trnid = $request->coupon;
+
         }
-        //dd($user->all());
+        $user = new Registration();
+        $user->reg_no = $regisid;
+        $user->name = $tempUser->name;
+        $user->company = $tempUser->company;
+        $user->job = $tempUser->job;
+        $user->address = $tempUser->address;
+        $user->city = $tempUser->city;
+        $user->pin = $tempUser->pin;
+        $user->state = $tempUser->state;
+        $user->country = $tempUser->country;
+        $user->tel = $tempUser->tel;
+        $user->fax = $tempUser->fax;
+        $user->mobile = $tempUser->mobile;
+        $user->email = $tempUser->email;
+        $user->website = $tempUser->website;
+        $user->activity = $tempUser->activity;
+        $user->interest = $tempUser->interest;
+        $user->about = $tempUser->about;
+        $user->turnover = $tempUser->turnover;
+        $user->paymode = $paymode;
+        $user->transaction_id = $trnid;
+        $user->save();
+        return view('frontend.success', ['regisid' => $user->reg_no]);
     }
 }

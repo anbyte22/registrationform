@@ -379,7 +379,7 @@ html {
 }
 
 body {
-    background: #f7f7f7;
+    background: #ffffff!important;
     /* Fallback for when there is no custom background color defined. */
 }
 
@@ -1074,19 +1074,8 @@ Home Blog
     -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     box-shadow: 0 0 5px rgb(0 0 0 / 50%);
     padding: 20px;
-    margin: 20px 0;
-}
-
-.box-shadow-pay {
-    background: rgba(255, 255, 255, 0.9);
-    border-collapse: collapse;
-    font-size: 12px;
-    margin-bottom: 25px;
-    /* -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 50%); */
-    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 5px rgb(0 0 0 / 50%);
-    padding: 20px;
-    margin: 20px 0;
+    margin: 25px 0;
+    width: 100%;
 }
 
 .formpage {
@@ -1236,4 +1225,60 @@ Home Blog
     width: 100%;
     padding: 12px 0px 0px;
     font-size: 14px;
+}
+
+#panel {
+    padding: 0px;
+    display: none;
+}
+
+#flip {
+    display: inline;
+    text-decoration: underline;
+    color: #f55d2c;
+}
+
+#panel input {
+    width: 45%;
+    margin: 0 auto;
+    border-radius: 30px;
+}
+
+#panel p {
+    padding: 18px 0px 0;
+    color: #999;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.mainpayment {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mainpayment #panel input {
+    margin: 30px 0 10px;
+}
+
+#operation {
+    margin: 10px 0px;
+}
+
+.mainpayment .radio {
+    float: left;
+    margin: 5px 10px;
+    text-align: center;
+}
+
+.payment-system {
+    margin-left: 39%!important;
+}
+
+.successfont h3 {
+    font-size: 16px;
+    text-align: center;
+    line-height: 26px;
+    padding: 15px 30px;
+    color: #321321;
 }
