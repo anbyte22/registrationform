@@ -1,4 +1,4 @@
-@extends('master.master')
+@extends('backend.master')
 @section('title', 'Registered| Member')
 @section('body')
     <!-- Content Header (Page header) -->
@@ -26,58 +26,113 @@
                     <div class="card">
                         {{-- <div class="card-header">
                             <h3 class="card-title">User Details</h3>
-                        </div>--}}
-                        <div id="details" style="background-color:rgb(177, 213, 247);">
+                        </div> --}}
+                        <div id="details" style="background-color:rgb(165, 172, 241);">
                             <div class="card-body">
                                 <div class="row">
 
                                     <div class="col-md-6">
                                         <label>Name :</label>
-                                        <span id="name">{{$item->name}}</span>
+                                        <span id="name">{{ $item->name }}</span>
                                     </div>
                                     <div class="col-md-6">
-                                        <label>Member Id :</label>
-                                        <span id="member">{{$item->reg_id}}</span>
+                                        <label>Registration Id :</label>
+                                        <span id="member">{{ $item->reg_id }}</span>
                                     </div>
                                     <div class="col-md-6">
-                                        <label>Date of Birth :</label>
-                                        <span id="dob">{{$item->dob}}</span>
+                                        <label>Company :</label>
+                                        <span id="dob">{{ $item->company }}</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Job :</label>
+                                        <span id="address">{{ $item->job }}</span>
                                     </div>
                                     <div class="col-md-6">
                                         <label>Address :</label>
-                                        <span id="address">{{$item->address}}</span>
+                                        <span id="city">{{ $item->address }}</span>
                                     </div>
                                     <div class="col-md-6">
                                         <label>City :</label>
-                                        <span id="city">{{$item->city}}</span>
+                                        <span id="district">{{ $item->city }}</span>
                                     </div>
                                     <div class="col-md-6">
-                                        <label>District :</label>
-                                        <span id="district">{{$item->district}}</span>
+                                        <label>Pin Code :</label>
+                                        <span id="state">{{ $item->pin }}</span>
                                     </div>
                                     <div class="col-md-6">
                                         <label>State :</label>
-                                        <span id="state">{{$item->state}}</span>
+                                        <span id="pin">{{ $item->state }}</span>
                                     </div>
                                     <div class="col-md-6">
-                                        <label>Pincode :</label>
-                                        <span id="pin">{{$item->pincode}}</span>
+                                        <label>Country :</label>
+                                        <span id="aadhar">{{ $item->country }}</span>
                                     </div>
                                     <div class="col-md-6">
                                         <label>Mobile :</label>
-                                        <span id="mobile">{{$item->mobileno}}</span>
+                                        <span id="mobile">{{ $item->mobile }}</span>
                                     </div>
                                     <div class="col-md-6">
                                         <label>Email :</label>
-                                        <span id="email">{{$item->email}}</span>
+                                        <span id="email">{{ $item->email }}</span>
                                     </div>
                                     <div class="col-md-6">
-                                        <label>Aadhar :</label>
-                                        <span id="aadhar">{{$item->aadhar}}</span>
+                                        <label>Telephone :</label>
+                                        <span id="pan">{{ $item->tel }}</span>
                                     </div>
                                     <div class="col-md-6">
-                                        <label>PAN :</label>
-                                        <span id="pan">{{$item->pan}}</span>
+                                        <label>Fax :</label>
+                                        <span id="pan">{{ $item->fax }}</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Website :</label>
+                                        <span id="pan">{{ $item->website }}</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Business :</label>
+                                        <span id="pan">
+                                            <ul>
+                                                @if ($item->activity != '')
+                                                    @foreach (explode('+', $item->activity) as $info)
+                                                        <li>{{$info}}</li>
+                                                    @endforeach
+                                                @endif
+
+                                            </ul>
+                                        </span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Interest :</label>
+                                        <span id="pan">
+                                            <ul>
+                                                @if ($item->interest != '')
+                                                    @foreach (explode('+', $item->interest) as $info)
+                                                        <li>{{$info}}</li>
+                                                    @endforeach
+                                                @endif
+
+                                            </ul>
+                                        </span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>About Aahar :</label>
+                                        <span id="pan">
+                                            <ul>
+                                                @if ($item->about != '')
+                                                    @foreach (explode('+', $item->about) as $info)
+                                                        <li>{{$info}}</li>
+                                                    @endforeach
+                                                @endif
+
+                                            </ul>
+                                        </span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Anual Turnover :</label>
+                                        <span id="pan">{{ $item->turnover }}</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Transaction ID :</label>
+                                        <span id="pan">{{ $item->transaction_id }}</span>
                                     </div>
                                     {{-- <div class="col-md-6">
                                         <label>Balance :</label>
@@ -85,17 +140,17 @@
                                     </div> --}}
                                 </div>
                                 <button type="button" class="btn btn-primary" onclick="window.history.back()">Back</button>
-                        <!-- /.card-body -->
+                                <!-- /.card-body -->
+                            </div>
+                        </div>
+                        <!-- /.col -->
                     </div>
+                    <!-- /.row -->
                 </div>
-                <!-- /.col -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
+                <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-    @include('sweetalert::alert')
+    {{-- @include('sweetalert::alert') --}}
 @endsection
 @push('css')
     <!-- DataTables -->

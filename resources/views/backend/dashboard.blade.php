@@ -32,7 +32,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Registered Members</span>
-                <span class="info-box-number">2,000</span>
+                <span class="info-box-number">{{$member}}</span>
               </div>
               <!-- /.info-box-content -->
             </div>

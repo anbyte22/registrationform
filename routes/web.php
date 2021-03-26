@@ -26,6 +26,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
     //Auth::routes();
     Route::get('admin/dashboard', 'Controller@dash');
     Route::get('admin/member', 'Controller@member');
+    Route::get('admin/member/view/{id}', 'Controller@viewMember');
     Route::get('admin/logout', function () {
         Auth::logout();
         Session::flush();
