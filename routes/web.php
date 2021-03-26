@@ -17,6 +17,7 @@ Route::get('/', 'RegistrationController@index');
 Route::get('payment/{id}', 'RegistrationController@payment');
 Route::post('/register', 'RegistrationController@register')->name('user.register');
 Route::post('payments', 'RegistrationController@paynow')->name('user.pay');
+Route::get('mail', 'MailController@send');
 Route::get('admin', 'Controller@loginForm');
 Route::get('admin/register', 'Controller@reg');
 Route::post('admin/register', 'Controller@regForm')->name('register');
