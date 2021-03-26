@@ -29,5 +29,6 @@ class Registration extends Model
         'turnover',
         'paymode',
         'transaction_id',
+        'QrImage',
     ];
 }

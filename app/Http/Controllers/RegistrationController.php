@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Registration;
 use App\Models\TempRegistration;
 use Illuminate\Http\Request;
+use QrCode;
 
 class RegistrationController extends Controller
 {
@@ -83,6 +84,15 @@ class RegistrationController extends Controller
 
         }
         $user = new Registration();
+        // dd('yes');
+        // $image=QrCode::size(300)->format('png')->generate($regisid.' '.$tempUser->name.' '.$tempUser->company.' '.$tempUser->job.' '.$tempUser->address.' '.$tempUser->city.' '.$tempUser->pin.' '.$tempUser->state.' '.$tempUser->country.' '.$tempUser->mobile.' '.$tempUser->email.' '.$tempUser->website);
+        $image = \QrCode::format('png')
+                 ->merge('img/t.jpg', 0.1, true)
+                 ->size(200)->errorCorrection('H')
+                 ->generate($regisid.' '.$tempUser->name.' '.$tempUser->company.' '.$tempUser->job.' '.$tempUser->address.' '.$tempUser->city.' '.$tempUser->pin.' '.$tempUser->state.' '.$tempUser->country.' '.$tempUser->mobile.' '.$tempUser->email.' '.$tempUser->website);
+        $output_file = '/img/qr-code/img-' . time() . '.png';
+        Storage::disk('local')->put($output_file, $image);
+       // exit;
         $user->reg_no = $regisid;
         $user->name = $tempUser->name;
         $user->company = $tempUser->company;
