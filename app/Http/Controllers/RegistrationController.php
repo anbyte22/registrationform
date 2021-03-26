@@ -22,6 +22,11 @@ class RegistrationController extends Controller
         //dd(implode($request->interest, '+'));
         $this->validate($request, [
             'mobile' => 'required|unique:temp_registrations|max:12|min:10',
+            'pin'=>'required|min:6',
+            'business'=>'required',
+            'interest'=>'required',
+            'aboutaahar'=>'required',
+            'annualturnover'=>'required',
         ]);
         $user = new TempRegistration;
         $user->name = $request->name;

@@ -35,7 +35,7 @@
 
                         <div class="form-outline col-md-12">
                             <label class="form-label" for="form6Example4">Address</label>
-                            <textarea id="form6Example4" name="address" class="form-control" value="{{ old('address') }}" required></textarea>
+                            <textarea id="form6Example4" name="address" class="form-control" value="{{ old('address') }}" required>{{ old('address') }}</textarea>
                         </div>
 
                         <!-- Email input -->
@@ -56,6 +56,9 @@
                         <div class="form-outline col-md-4">
                             <label class="form-label" for="form6Example7">State</label>
                             <input type="text" name="state" id="form6Example6" class="form-control" value="{{ old('state') }}" required />
+                            @error('pin')
+                                <span style="color: red">*{{$message}}</span>
+                            @enderror
 
                         </div>
                         <div class="form-outline col-md-4">
@@ -102,6 +105,12 @@
                         <div class="clearfix"></div>
                         <div class="checkbox">
                             <div class="title-business">YOUR BUSINESS ACTIVITY</div>
+                            @error('business')
+                            <div class="alert alert-danger" role="alert" style="color: red;">
+                                <b>*Please Select your Business Activity.</b>
+                              </div>
+
+                            @enderror
                             <div class="col-md-6 inputtype">
                                 <div class="checkout__input__checkbox">
                                     <label for="airline">
@@ -330,6 +339,11 @@
                             <!-- Checkbox -->
                             <div class="checkbox">
                                 <div class="title-business">AREA OF INTEREST</div>
+                                @error('interest')
+                            <div class="alert alert-danger" role="alert" style="color: red;">
+                                <b>*Please Select your AREA OF INTEREST.</b>
+                              </div>
+                              @enderror
                                 <div class="col-md-6 inputtype">
                                     <div class="checkout__input__checkbox">
                                         <label for="foodsector">
@@ -643,6 +657,11 @@
                                 <!--Checkbox-->
                                 <div class="checkbox">
                                     <div class="title-business">ABOUT AAHAR 2021</div>
+                                    @error('aboutaahar')
+                                    <div class="alert alert-danger" role="alert" style="color: red;">
+                                        <b>*Please Select your ABOUT AAHAR 2021.</b>
+                                      </div>
+                                      @enderror
                                     <div class="col-md-6 inputtype">
                                         <div class="checkout__input__checkbox">
                                             <label for="assoemail">
@@ -720,6 +739,11 @@
                                     <!--#checkbox-->
                                     <div class="checkbox">
                                         <div class="title-business">YOUR ANNUAL TURNOVER</div>
+                                        @error('annualturnover')
+                                    <div class="alert alert-danger" role="alert" style="color: red;">
+                                        <b>*Please Select your YOUR ANNUAL TURNOVER.</b>
+                                      </div>
+                                      @enderror
                                         <div class="col-md-6 inputtype">
                                             <div class="checkout__input__checkbox">
                                                 <label for="uptotwofv">

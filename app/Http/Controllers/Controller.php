@@ -68,11 +68,16 @@ class Controller extends BaseController
     }
     public function dash()
     {
-        return view('backend.dashboard', ['active' => 'Dashboard']);
+        $count=Registration::count();
+        return view('backend.dashboard', ['active' => 'Dashboard','member'=>$count]);
     }
     public function member()
     {
-        $member = Registration::all();
+        $member = Registration::paginate(30);
         return view('backend.member', ['datas' => $member, 'active' => 'Member']);
+    }
+    public function viewMember($id){
+         $data=Registration::where('reg_no',$id)->first();
+         return view('backend.viewMember',['item'=>$data,'active'=>'Member']);
     }
 }

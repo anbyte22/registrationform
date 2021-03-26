@@ -53,16 +53,16 @@
                                             <td>{{ $data->mobile }}</td>
                                             <td>{{ $data->email }}</td>
                                             <td>
-                                                <a href="#" title="View Detail"><img
+                                                <a href="{{url('admin/member/view')}}/{{$data->reg_no}}" title="View Detail"><img
                                                         src="{{ asset('public/icon/eye.png') }}"></a>&nbsp;
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                                 <tfoot>
-                                    {{-- <tr>
-                        <td colspan="8">{{ $datas->links() }}</td>
-                    </tr> --}}
+                                     <tr>
+                                        <td colspan="8">{{ $datas->links('vendor\pagination.simple-bootstrap-4') }}</td>
+                                     </tr>
                                 </tfoot>
                             </table>
                         </div>
