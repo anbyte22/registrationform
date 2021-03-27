@@ -1282,3 +1282,131 @@ Home Blog
     padding: 15px 30px;
     color: #321321;
 }
+
+
+/**********************
+Visiror Page
+***********************/
+
+.vist {
+    background: #ff0066;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.visitor {
+    width: 100%;
+    padding: 20px;
+    color: #ffff;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.visitor span {
+    color: #16ca00;
+    padding: 8px;
+}
+
+.e-generate {
+    width: 640px;
+    margin: 0px auto;
+    /* border: 1px solid #e7e7e7;*/
+    border-radius: 0px;
+}
+
+.borderone {
+    border: 1px solid #e7e7e7;
+    padding: 15px 0;
+}
+
+.egen-name {
+    width: 100%;
+}
+
+.egen-name h4 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: #321321;
+    text-transform: uppercase;
+}
+
+.egen-name p {
+    margin-bottom: 0px;
+    margin: 4px 0px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #321321;
+}
+
+.egen-name span {
+    font-size: 16px;
+    color: #321321;
+    font-weight: 500
+}
+
+.eneg-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #321321;
+    text-transform: uppercase;
+    padding: 6px 6px;
+}
+
+.visiting {
+    font-size: 20px;
+    color: #321321;
+    padding-bottom: 15px;
+    font-weight: 800;
+}
+
+.vdate {
+    color: #321321;
+    padding: 5px 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.middlepart {
+    position: relative;
+}
+
+.barcode-right img {
+    width: 34%;
+    float: right;
+    margin-top: -48px;
+}
+
+.logobtm {
+    width: 100%;
+    float: left;
+    padding: 15px 15px;
+}
+
+.logobtm ul {
+    list-style: none;
+    padding: 0px 45px;
+}
+
+.logobtm ul li {
+    display: inline;
+    width: 50%;
+    float: left;
+}
+
+.pro-beauty {
+    text-align: center;
+}
+
+.pro-beauty a {
+    padding: 15px;
+    color: #321321;
+    font-size: 16px;
+}
+
+.pro-beauty a:hover {
+    color: #ff0066;
+    text-decoration: none;
+}

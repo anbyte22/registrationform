@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendMail;
 use App\Models\Registration;
 use App\Models\TempRegistration;
 use Illuminate\Http\Request;
-use QrCode;
+use Illuminate\Support\Facades\Mail;
 
 class RegistrationController extends Controller
 {
@@ -23,11 +24,11 @@ class RegistrationController extends Controller
         //dd(implode($request->interest, '+'));
         $this->validate($request, [
             'mobile' => 'required|unique:temp_registrations|max:12|min:10',
-            'pin'=>'required|min:6',
-            'business'=>'required',
-            'interest'=>'required',
-            'aboutaahar'=>'required',
-            'annualturnover'=>'required',
+            'pin' => 'required|min:6',
+            'business' => 'required',
+            'interest' => 'required',
+            'aboutaahar' => 'required',
+            'annualturnover' => 'required',
         ]);
         $user = new TempRegistration;
         $user->name = $request->name;
@@ -86,13 +87,13 @@ class RegistrationController extends Controller
         $user = new Registration();
         // dd('yes');
         // $image=QrCode::size(300)->format('png')->generate($regisid.' '.$tempUser->name.' '.$tempUser->company.' '.$tempUser->job.' '.$tempUser->address.' '.$tempUser->city.' '.$tempUser->pin.' '.$tempUser->state.' '.$tempUser->country.' '.$tempUser->mobile.' '.$tempUser->email.' '.$tempUser->website);
-        $image = \QrCode::format('png')
-                 ->merge('img/t.jpg', 0.1, true)
-                 ->size(200)->errorCorrection('H')
-                 ->generate($regisid.' '.$tempUser->name.' '.$tempUser->company.' '.$tempUser->job.' '.$tempUser->address.' '.$tempUser->city.' '.$tempUser->pin.' '.$tempUser->state.' '.$tempUser->country.' '.$tempUser->mobile.' '.$tempUser->email.' '.$tempUser->website);
+        /*$image = \QrCode::format('png')
+        ->merge('img/t.jpg', 0.1, true)
+        ->size(200)->errorCorrection('H')
+        ->generate($regisid.' '.$tempUser->name.' '.$tempUser->company.' '.$tempUser->job.' '.$tempUser->address.' '.$tempUser->city.' '.$tempUser->pin.' '.$tempUser->state.' '.$tempUser->country.' '.$tempUser->mobile.' '.$tempUser->email.' '.$tempUser->website);
         $output_file = '/img/qr-code/img-' . time() . '.png';
-        Storage::disk('local')->put($output_file, $image);
-       // exit;
+        Storage::disk('local')->put($output_file, $image);*/
+        // exit;
         $user->reg_no = $regisid;
         $user->name = $tempUser->name;
         $user->company = $tempUser->company;
@@ -114,6 +115,7 @@ class RegistrationController extends Controller
         $user->paymode = $paymode;
         $user->transaction_id = $trnid;
         $user->save();
+        Mail::send(new SendMail($user));
         return view('frontend.success', ['regisid' => $user->reg_no]);
     }
 }
