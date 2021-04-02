@@ -3,21 +3,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon -->
-    <title>One Page Land | Home Page </title>
-
     <!-- Bootstrap core CSS-->
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/responsive.css">
-
-
+    <style type="text/css" media="all"></style>
+    <link href="{{ asset('public/frontend/css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('public/frontend/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/frontend/css/responsive.css') }}">
     <!-- Custom fonts for this template-->
-    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('public/frontend/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -25,7 +19,7 @@
     <!----#Header------>
     <div class="header">
         <div class="e-generate">
-            <img src="images/slider/slider.jpg" alt="">
+            <img src="{{ asset('public/frontend/images/badge.jpg') }}" alt="">
         </div>
 
         <div class="clearfix"></div>
@@ -41,7 +35,7 @@
                             </div>
                             <div class="col-md-12 middlepart">
                                 <div class="visiting">
-                                    Visit Pawan Kumar
+                                    Visit {{ $data->name }}
                                 </div>
                                 <div class="vdate">
                                     <label>Visiting Date : </label> 20 - April 2021
@@ -52,17 +46,20 @@
                                 <div class="vdate">
                                     <label>URN No : </label> PBV000150
                                 </div>
-                                <div class="barcode-right">
-                                    <img src="images/barcode.jpg" alt="">
+                                <div class="barcode-right" style="float: right;">
+
+                                    {!! QrCode::size(200)->generate($data->reg_no . ' ' . $data->name . ' ' . $data->company . ' ' . $data->job . ' ' . $data->address . ' ' . $data->city . ' ' . $data->pin . ' ' . $data->state . ' ' . $data->country . ' ' . $data->mobile . ' ' . $data->email . ' ' . $data->website) !!}
                                 </div>
                             </div>
                             <div class="logobtm">
                                 <ul>
                                     <li>
-                                        <a href="#"><img src="images/professional.jpg" alt=""></a>
+                                        <a href="#"><img src="{{ asset('public/frontend/images/professional.jpg') }}"
+                                                alt=""></a>
                                     </li>
                                     <li>
-                                        <a href="#"><img src="images/idx.jpg" alt=""></a>
+                                        <a href="#"><img src="{{ asset('public/frontend/images/idx.jpg') }}"
+                                                alt=""></a>
                                     </li>
                                 </ul>
                             </div>
@@ -80,17 +77,11 @@
         <div class="container">
             <div class="row">
                 <div class="visitor vist e-generate">
-                    Visitor <span>19822</span>
-
+                    Visitor
                 </div>
 
             </div>
         </div>
-
-
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-
 </body>
 
 </html>

@@ -7,6 +7,9 @@ use App\Models\Registration;
 use App\Models\TempRegistration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
+use PDF;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class RegistrationController extends Controller
 {
@@ -85,15 +88,6 @@ class RegistrationController extends Controller
 
         }
         $user = new Registration();
-        // dd('yes');
-        // $image=QrCode::size(300)->format('png')->generate($regisid.' '.$tempUser->name.' '.$tempUser->company.' '.$tempUser->job.' '.$tempUser->address.' '.$tempUser->city.' '.$tempUser->pin.' '.$tempUser->state.' '.$tempUser->country.' '.$tempUser->mobile.' '.$tempUser->email.' '.$tempUser->website);
-        /*$image = \QrCode::format('png')
-        ->merge('img/t.jpg', 0.1, true)
-        ->size(200)->errorCorrection('H')
-        ->generate($regisid.' '.$tempUser->name.' '.$tempUser->company.' '.$tempUser->job.' '.$tempUser->address.' '.$tempUser->city.' '.$tempUser->pin.' '.$tempUser->state.' '.$tempUser->country.' '.$tempUser->mobile.' '.$tempUser->email.' '.$tempUser->website);
-        $output_file = '/img/qr-code/img-' . time() . '.png';
-        Storage::disk('local')->put($output_file, $image);*/
-        // exit;
         $user->reg_no = $regisid;
         $user->name = $tempUser->name;
         $user->company = $tempUser->company;
@@ -114,8 +108,33 @@ class RegistrationController extends Controller
         $user->turnover = $tempUser->turnover;
         $user->paymode = $paymode;
         $user->transaction_id = $trnid;
+        $qrcode = \QrCode::size(200)->errorCorrection('H')->format('svg')->generate($regisid . ' ' . $tempUser->name . ' ' . $tempUser->company . ' ' . $tempUser->job . ' ' . $tempUser->address . ' ' . $tempUser->city . ' ' . $tempUser->pin . ' ' . $tempUser->state . ' ' . $tempUser->country . ' ' . $tempUser->mobile . ' ' . $tempUser->email . ' ' . $tempUser->website);
+        $output_file = '/qrcode/img-' . time() . '.svg';
+        Storage::disk('local')->put($output_file, $qrcode);
+        $user->qrcode = $output_file;
         $user->save();
         Mail::send(new SendMail($user));
         return view('frontend.success', ['regisid' => $user->reg_no]);
+    }
+    public function download($regisid)
+    {
+
+        $user = Registration::find($regisid);
+
+        $qrcode = \QrCode::size(200)->errorCorrection('H')->format('svg')->generate($user->reg_no . ' ' . $user->name . ' ' . $user->company . ' ' . $user->job . ' ' . $user->address . ' ' . $user->city . ' ' . $user->pin . ' ' . $user->state . ' ' . $user->country . ' ' . $user->mobile . ' ' . $user->email . ' ' . $user->website);
+        //dd($qrcode);
+        //$user->qrcode = $qrcode;
+        //$user->save();
+        //$output_file = '/qrcode/img-' . time() . '.svg';
+        //$qr_path = Storage::disk('local')->put($output_file, $qrcode);
+
+        //$user->qrcode = $output_file;
+        //  $user->save();
+        //return $pdf->stream('food.pdf');
+        $pdf = PDF::loadView('frontend.mpdf', ['data' => $user]);
+
+        //return view('frontend.mpdf', ['data' => $user]);
+        return $pdf->download('AAHAR_FOOD.pdf');
+
     }
 }
